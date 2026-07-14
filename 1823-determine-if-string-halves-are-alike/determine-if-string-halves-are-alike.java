@@ -4,7 +4,7 @@ class Solution {
     public boolean halvesAreAlike(String s) {
         int n=s.length();
         int mid=n/2;
-        s=s.toLowerCase();
+        //s=s.toLowerCase();
         int vowelCount=0;
         
 
@@ -19,7 +19,9 @@ class Solution {
         return vowelCount==0;
             
     }
-    private boolean isVowel(char ch){
-        return ch=='a'||ch=='e'||ch=='o'||ch=='i'||ch=='u';
+    private boolean isVowel(char ch) {
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+               ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U';
+
     }
 }
