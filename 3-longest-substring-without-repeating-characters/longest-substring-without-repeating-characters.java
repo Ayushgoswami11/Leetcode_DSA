@@ -1,28 +1,24 @@
-import java.util.Arrays;
-
 class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        int[] lastIndex = new int[128];
-        Arrays.fill(lastIndex, -1);
+  public int lengthOfLongestSubstring(String s) {
+      int n = s.length();
+      int left = 0, right = 0;
+      HashSet<Character> set = new HashSet<>();
+      int maxLength = 0;
 
-        int maxLen = 0;
-        int left = 0;
 
-        for (int right = 0; right < s.length(); right++) {
-            char ch = s.charAt(right);
 
-            // If the character was seen inside the current window, shift left
-            if (lastIndex[ch] >= left) {
-                left = lastIndex[ch] + 1;
-            }
 
-            // Update the last seen position of the current character
-            lastIndex[ch] = right;
-
-            // Calculate current window length
-            maxLen = Math.max(maxLen, right - left + 1);
-        }
-
-        return maxLen;
-    }
+      while (right < n) {
+          if (!set.contains(s.charAt(right))) {
+              set.add(s.charAt(right));
+              maxLength = Math.max(maxLength, right - left + 1);
+              right++;  // Expand the window
+          } else {
+              set.remove(s.charAt(left));
+              left++;  // Shrink the window
+          }
+      }
+      return maxLength;
+  }
 }
+
