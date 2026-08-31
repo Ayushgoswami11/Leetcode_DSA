@@ -12,7 +12,6 @@ class Solution {
             }
         }
 
-        // The root contains the kth largest element
         return minHeap.peek();
     }
 }
