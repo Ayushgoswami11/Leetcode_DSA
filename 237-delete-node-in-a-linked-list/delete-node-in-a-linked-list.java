@@ -8,9 +8,10 @@
  */
 class Solution {
     public void deleteNode(ListNode node) {
+        // Step 1: Copy the value of the next node into the current node
         node.val = node.next.val;
-        
-        // Bypass the next node, effectively deleting it from the chain
+
+        // Step 2: Skip the next node
         node.next = node.next.next;
     }
 }
