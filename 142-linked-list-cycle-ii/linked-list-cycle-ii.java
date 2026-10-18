@@ -11,21 +11,20 @@
  */
 class Solution {
     public ListNode detectCycle(ListNode head) {
-    
-        ListNode slow=head;
-        ListNode fast=head;
-        boolean hasCycle=false;
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean hasCycle = false;
 
         // Phase 1: Detect if a cycle exists
-        
-        while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-            if(slow==fast){
-                hasCycle=true;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                hasCycle = true;
                 break;
             }
         }
+
         // If no cycle was found, return null
         if (!hasCycle) {
             return null;
