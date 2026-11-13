@@ -33,7 +33,7 @@ class Solution {
         ListNode tail1=temp;
         ListNode head1=temp.next;
 
-        for(int i=1;i<=right-left+1;i++){
+        for(int i=0;i<right-left+1;i++){
             temp=temp.next;
         }
         ListNode tail2=temp;
